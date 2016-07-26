@@ -2,3 +2,19 @@ body{
     text-align: center;
     background-color: cornsilk;
 }
+
+h1{
+    font-size: 100px;
+    background-color: cyan;
+    text-shadow: darkgray 20px 10px 5px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#p1{
+    background-color: coral;
+}
+
+#p2{
+    background-color: aquamarine;
+}

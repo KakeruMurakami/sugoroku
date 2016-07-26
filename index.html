@@ -9,8 +9,28 @@
 </head>
 <body>
     <h1>すごろく</h1>
-    <p><button id="saikoro">サイコロを振る</button></p>
-    <p id="sugo">start!</p>
+    <p>このゲームは２人用です。</p>
+    <p>ゴールまでのマスの数を決めてください。</p>
+    <p>※20マス以上40マス以下</p>
+    <p>マス数 : </p>
+        <input type="number" id="my-number" min="20" max="40" value="20" />
+        <button onclick="onButtonClick();">決定！</button>
+    <br>
+    <br>
+    <div id="p1">
+        <p>☆player1</p>
+        <p><button id="p1saikoro">サイコロを振る</button></p>
+        <p id="p1sugo">start!</p>
+    </div>
+    <div id="p2">
+        <p>☆player2</p>
+        <p><button id="p2saikoro">サイコロを振る</button></p>
+        <p id="p2sugo">start!</p>
+    </div>
+    <br>
+    <button onclick="reload();">もう一回遊ぶ</button>
+    
+    
 
 </body>
 </html>

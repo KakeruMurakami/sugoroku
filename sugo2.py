@@ -1,51 +1,57 @@
 import random
 
 dist = int(input("マスの数 = "))
-player1=[0]
-player2=[0]
-
 while True:
-    if sum(player1) < dist:
-        sai1=random.randint(1,6)
-        print ("player1の出た目は"+str(sai1)+"です")
-        player1.append(sai1)
-        masu1=sum(player1)
-        print ("player1は現在"+str(masu1)+"マス進んでいます")
-        if masu1 == dist:
-            print ("player1 goal!")
-            break
+    if dist < 20 or dist > 39:
+        print ("20以上40未満を入力してください!")
+        dist = int(input("マスの数 = "))
+    else:
+        break
         
-    elif sum(player1) >dist:
-        sai1=random.randint(1,6)
-        print ("player1の出た目は"+str(sai1)+"です")
-        sai1=-sai1
-        player1.append(sai1)
-        masu1=sum(player1)
-        print ("player1は現在"+str(masu1)+"マス進んでいます")
-        if masu1 == dist:
-            print ("plater1 goal!")
-            break
+human = int(input("人数 = "))
+while True:
+    if human < 2 or human > 5:
+        print ("2以上6未満を入力してください!")
+        dist = int(input("人数 = "))
+    else:
+        break
 
         
-    if sum(player2) < dist:
-        sai2=random.randint(1,6)
-        print ("player2の出た目は"+str(sai2)+"です")
-        player2.append(sai2)
-        masu2=sum(player2)
-        print ("player2は現在"+str(masu2)+"マス進んでいます")
-        if masu2 == dist:
-            print ("player2 goal!")
-            break
-    elif sum(player2) >dist:
-        sai2=random.randint(1,6)
-        print ("player2の出た目は"+str(sai2)+"です")
-        sai2=-sai2
-        player2.append(sai2)
-        masu=sum(player2)
-        print ("player2は現在"+str(masu2)+"マス進んでいます")
-        if masu2 == dist:
-            print ("player2 goal!")
-            break
+point=[0]*human
+player=[0]*human
+pointload=[0]
+
+for i in range(1,dist):
+    pointload.append(random.randint(1,10))
+   
+while player != [dist]*human:
+    for i in range(0,human):
+        if player[i] != dist:
+            sai=random.randint(1,8)
+            print("player"+str(i+1)+"の出た目は"+str(sai)+"です。")
+            if sai % 2 == 1:
+                sai=-sai
+            player[i]+=sai
+            if player[i] < 0:
+                player[i]=0
+            if player[i] < dist:
+                print("player"+str(i+1)+"の進んだ目は"+str(player[i])+"です。")
+                point[i]+=pointload[player[i]]
+                print(str(pointload[player[i]])+"ポイント獲得！player"+str(i+1)+"の合計ポイントは"+str(point[i])+"です。")
+            if player[i] == dist:
+                print("player"+str(i+1)+"はゴール！")
+                point[i]+= human/(player.count(dist))
+                print(str(player.count(dist))+"番にゴールしたので、最終ポイントは"+str(point[i])+"です！")
+            if player[i] > dist:
+                print("player"+str(i+1)+"の進んだ目は"+str(player[i])+"です。振り出しに戻ります。")
+                player[i]=0
+                point[i]+=pointload[player[i]]
+                print(str(pointload[player[i]])+"ポイント獲得！player"+str(i+1)+"の合計ポイントは"+str(point[i])+"です。")
+
+print("全員ゴール！") 
+
+        
+    
     
     
 

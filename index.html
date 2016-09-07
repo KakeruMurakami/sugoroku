@@ -9,12 +9,15 @@
 </head>
 <body>
     <h1>すごろく</h1>
-    <p>このゲームは２人用です。</p>
+    <p>プレイヤー人数を決めてください。</p>
+    <p>※２人以上６人未満</p>
+    <p>プレイヤー数 : </p>
+        <input type="number" id="my-number1" min="2" max="5" value="2" />
     <p>ゴールまでのマスの数を決めてください。</p>
-    <p>※20マス以上40マス以下</p>
+    <p>※20マス以上40マス未満</p>
     <p>マス数 : </p>
-        <input type="number" id="my-number" min="20" max="40" value="20" />
-        <button onclick="onButtonClick();">決定！</button>
+        <input type="number" id="my-number2" min="20" max="39" value="20" />
+    <p><button onclick="onButtonClick();">決定！</button></p>
     <br>
     <br>
     <div id="p1">
